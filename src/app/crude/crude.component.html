@@ -1,0 +1,60 @@
+<div class="container">
+  <h2 style="text-align:center; margin-bottom:100px; margin-top: 10px;">CRUD OPERATION</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <h3>Fill Employee Details</h3>
+      <form [formGroup]="myform" (ngSubmit)="submit()">
+        <div class="mb-3">
+          <label class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter the Name" formControlName="name">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter the Email" formControlName="email">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Phone</label>
+          <input type="text" class="form-control" id="phone" placeholder="Enter the Phone" formControlName="phone">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">City</label>
+          <input type="text" class="form-control" id="city" placeholder="Enter the City" formControlName="city">
+        </div>
+        <div class="mb-3">
+
+          <input type="file" class="form-control" (change)="selectfile($event)">
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+
+    </div>
+    <div class="col-md-8">
+      <h3 style="text-align:center">Employee Dtails</h3>
+      <table class="table">
+        <thead>
+          <th>ID</th>
+          <th> Name</th>
+          <th> Email</th>
+          <th> Phone</th>
+          <th> City</th>
+          <th> Images</th>
+          <th>Change</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let showdata of takedata, index as id ">
+            <td>{{id+101}}</td>
+            <td>{{showdata.name}}</td>
+            <td>{{showdata.email}}</td>
+            <td>{{showdata.phone}}</td>
+            <td>{{showdata.city}}</td>
+            <td><img [src]="showdata.url" style="width:100px;height: 100px"></td>
+            <td>
+              <button class="btn btn-warning" (click)="update(showdata, id)">UPDATE</button>&nbsp;
+              <button class="btn btn-danger" (click)="delete(id)">Delete</button>&nbsp;
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+
+        <thead>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Body</th>
+        </thead>
+
+      <tbody>
+        <tr *ngFor="let userdatas of userdata">
+          <td>{{userdatas.id}}</td>
+          <td>{{userdatas.title}}</td>
+          <td>{{userdatas.body}}</td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+  </div>
+</div>
